@@ -1,0 +1,20 @@
+// Expression Tree
+digraph {
+	<__main__.Node object at 0x0000015E48C92880> [label="*"]
+	<__main__.Node object at 0x0000015E48C92880> -> <__main__.Node object at 0x0000015E48C92A00>
+	<__main__.Node object at 0x0000015E48C92190> [label=1]
+	<__main__.Node object at 0x0000015E48C92190> -> <__main__.Node object at 0x0000015E48C92880>
+	<__main__.Node object at 0x0000015E48C92940> [label="+"]
+	<__main__.Node object at 0x0000015E48C92940> -> <__main__.Node object at 0x0000015E48C92880>
+	<__main__.Node object at 0x0000015E48C92310> [label=2]
+	<__main__.Node object at 0x0000015E48C92310> -> <__main__.Node object at 0x0000015E48C92940>
+	<__main__.Node object at 0x0000015E48C92850> [label="*"]
+	<__main__.Node object at 0x0000015E48C92850> -> <__main__.Node object at 0x0000015E48C92940>
+	<__main__.Node object at 0x0000015E48C92220> [label=3]
+	<__main__.Node object at 0x0000015E48C92220> -> <__main__.Node object at 0x0000015E48C92850>
+	<__main__.Node object at 0x0000015E48C92820> [label=4]
+	<__main__.Node object at 0x0000015E48C92820> -> <__main__.Node object at 0x0000015E48C92850>
+	<__main__.Node object at 0x0000015E48C92A60> [label=5]
+	<__main__.Node object at 0x0000015E48C92A60> -> <__main__.Node object at 0x0000015E48C92A00>
+	<__main__.Node object at 0x0000015E48C92A00> [label="*"]
+}
