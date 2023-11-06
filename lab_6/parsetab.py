@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'leftPERCENTleftHASHHASH NUMBER PERCENTexpression : expression HASH expression\n    | expression PERCENT expressionexpression : NUMBER'
+_lr_signature = 'leftPLUSMINUSleftTIMESDIVIDErightUMINUSDIVIDE LPAREN MINUS NUMBER PLUS POWER RPAREN TIMESexpression : expression PLUS expression\n    | expression MINUS expression\n    | expression TIMES expression\n    | expression DIVIDE expression\n    | expression POWER expressionexpression : LPAREN expression RPARENexpression : NUMBERexpression : MINUS expression %prec UMINUS'
     
-_lr_action_items = {'NUMBER':([0,3,4,],[2,2,2,]),'$end':([1,2,5,6,],[0,-3,-1,-2,]),'HASH':([1,2,5,6,],[3,-3,-1,3,]),'PERCENT':([1,2,5,6,],[4,-3,-1,-2,]),}
+_lr_action_items = {'LPAREN':([0,2,3,5,6,7,8,9,],[3,3,3,3,3,3,3,3,]),'NUMBER':([0,2,3,5,6,7,8,9,],[4,4,4,4,4,4,4,4,]),'MINUS':([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,],[2,6,2,2,-7,2,2,2,2,2,-8,6,-1,-2,-3,-4,6,-6,]),'$end':([1,4,10,12,13,14,15,16,17,],[0,-7,-8,-1,-2,-3,-4,-5,-6,]),'PLUS':([1,4,10,11,12,13,14,15,16,17,],[5,-7,-8,5,-1,-2,-3,-4,5,-6,]),'TIMES':([1,4,10,11,12,13,14,15,16,17,],[7,-7,-8,7,7,7,-3,-4,7,-6,]),'DIVIDE':([1,4,10,11,12,13,14,15,16,17,],[8,-7,-8,8,8,8,-3,-4,8,-6,]),'POWER':([1,4,10,11,12,13,14,15,16,17,],[9,-7,-8,9,-1,-2,-3,-4,9,-6,]),'RPAREN':([4,10,11,12,13,14,15,16,17,],[-7,-8,17,-1,-2,-3,-4,-5,-6,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'expression':([0,3,4,],[1,5,6,]),}
+_lr_goto_items = {'expression':([0,2,3,5,6,7,8,9,],[1,10,11,12,13,14,15,16,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,7 +27,12 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> expression","S'",1,None,None,None),
-  ('expression -> expression HASH expression','expression',3,'p_expression','lab_6_2.py',45),
-  ('expression -> expression PERCENT expression','expression',3,'p_expression','lab_6_2.py',46),
-  ('expression -> NUMBER','expression',1,'p_expression_number','lab_6_2.py',54),
+  ('expression -> expression PLUS expression','expression',3,'p_expression_binop','lab_6.py',47),
+  ('expression -> expression MINUS expression','expression',3,'p_expression_binop','lab_6.py',48),
+  ('expression -> expression TIMES expression','expression',3,'p_expression_binop','lab_6.py',49),
+  ('expression -> expression DIVIDE expression','expression',3,'p_expression_binop','lab_6.py',50),
+  ('expression -> expression POWER expression','expression',3,'p_expression_binop','lab_6.py',51),
+  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','lab_6.py',65),
+  ('expression -> NUMBER','expression',1,'p_expression_number','lab_6.py',70),
+  ('expression -> MINUS expression','expression',2,'p_expression_uminus','lab_6.py',75),
 ]

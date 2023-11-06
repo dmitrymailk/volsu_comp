@@ -1,7 +1,16 @@
 import ply.lex as lex
 
 # Определение токенов
-tokens = ("NUMBER", "PLUS", "MINUS", "TIMES", "DIVIDE", "POWER", "LPAREN", "RPAREN")
+tokens = (
+    "NUMBER",
+    "PLUS",
+    "MINUS",
+    "TIMES",
+    "DIVIDE",
+    "POWER",
+    "LPAREN",
+    "RPAREN",
+)
 
 # Определение регулярных выражений для токенов
 t_PLUS = r"\+"
